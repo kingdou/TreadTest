@@ -61,9 +61,13 @@ public class MainActivity extends Activity {
     }
 
     class ChangeTask extends AsyncTask<Void,String,Void>{
+        @Override
+        protected void  onPreExecute(){
+
+        }
 
         @Override
-        protected Void doInBackground(Void... params) {
+         protected Void doInBackground(Void... params) {
          String s="Nice to meet you too";
             publishProgress(s);
 
@@ -73,6 +77,10 @@ public class MainActivity extends Activity {
         @Override
         protected void onProgressUpdate(String... values){
             text.setText(values[0]);
+        }
+
+        @Override
+        protected void onPostExecute(Void  result){
         }
     }
 }
